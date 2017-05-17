@@ -193,8 +193,11 @@ fileprivate extension GlidingCollection {
   }
 
   private func setupGradientOverlays() {
-    topOverlayGradient.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
-    bottomOverlayGradient.colors = [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.cgColor]
+    let colors: [CGColor] = [UIColor.darkGray, UIColor.black].map { $0.cgColor }
+    
+    topOverlayGradient.colors = colors
+    bottomOverlayGradient.colors = colors.reversed()
+  
     layer.addSublayer(topOverlayGradient)
     layer.addSublayer(bottomOverlayGradient)
   }
